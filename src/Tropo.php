@@ -198,7 +198,7 @@
                 }
                 $call = new Call($call, $from, $network, $channel, $answerOnMedia, $timeout, $headers, $recording, $allowSignals, $machineDetection, $voice);
             }
-            $this->call = sprintf('%s', $call);
+            $this->_load_action('call', sprintf('%s', $call));
         }
 
         /**
@@ -236,7 +236,7 @@
                 $name       = (empty($name)) ? (string)$id : $name;
                 $conference = new Conference($name, $id, $mute, $on, $playTones, $required, $terminator, $allowSignals, $interdigitTimeout, $joinPrompt, $leavePrompt, $voice);
             }
-            $this->conference = sprintf('%s', $conference);
+            $this->_load_action('conference', sprintf('%s', $conference));
         }
 
         /**
@@ -376,7 +376,7 @@
                 }
                 $message = new Message($say, $to, $channel, $network, $from, $voice, $timeout, $answerOnMedia, $headers);
             }
-            $this->message = sprintf('%s', $message);
+            $this->_load_action('message', sprintf('%s', $message));
         }
 
         /**
@@ -484,7 +484,7 @@
                 $from     = isset($params["from"]) ? $params["from"] : null;
                 $redirect = new Redirect($to, $from);
             }
-            $this->redirect = sprintf('%s', $redirect);
+            $this->_load_action('redirect', sprintf('%s', $redirect));
         }
 
         /**
@@ -496,7 +496,7 @@
          */
         public function reject () {
             $reject       = new Reject();
-            $this->reject = sprintf('%s', $reject);
+            $this->_load_action('reject', sprintf('%s', $reject));
         }
 
         /**
@@ -697,7 +697,7 @@
                 $on       = $on == null ? null : sprintf('%s', $on);
                 $transfer = new Transfer($to, $answerOnMedia, $choices, $from, $ringRepeat, $timeout, $on, $allowSignals, $headers, $machineDetection, $voice);
             }
-            $this->transfer = sprintf('%s', $transfer);
+            $this->_load_action('transfer', sprintf('%s', $transfer));
         }
 
         /**
@@ -865,7 +865,7 @@
                 $signal = isset($params['allowSignals']) ? $params['allowSignals'] : null;
                 $wait   = new Wait($params["milliseconds"], $signal);
             }
-            $this->wait = sprintf('%s', $wait);
+            $this->_load_action('wait', sprintf('%s', $wait));
         }
 
         /**
