@@ -1,1 +1,6 @@
+# Mac and editor files
+.idea
+.DS_Store
+
+#composer
 /vendor/
